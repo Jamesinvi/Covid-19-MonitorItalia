@@ -1,0 +1,22 @@
+{
+  "name": "covid-19-monitor",
+  "version": "1.0.0",
+  "description": "Takes data for cases of Covid-19 in italy and charts them",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Covid-19",
+    "data",
+    "chart",
+    "apexcharts"
+  ],
+  "author": "James Karran",
+  "license": "MIT",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
