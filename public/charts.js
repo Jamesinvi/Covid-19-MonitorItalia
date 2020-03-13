@@ -123,7 +123,7 @@ let lastOptions={
         size: 1
     },
     yaxis:{
-        show: false
+        show: true
     }
 }
 chart = new ApexCharts(document.getElementById("chart_1"), options);
