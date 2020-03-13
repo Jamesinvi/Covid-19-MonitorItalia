@@ -91,29 +91,29 @@ let newOptions={
 let lastOptions={
     series: [],
     chart: {
-        type: 'area',
+        type: 'line',
         height: 600,
         stacked: true,
         zoom:{
             type:"xy"
         }
     },
+    plotOptions: {
+        bar: {
+            horizontal: false,
+            columnWidth: '55%',
+            endingShape: 'rounded'
+        },
+    },
     stroke: {
         curve: "straight"
-    },
-    fill: {
-        type: 'gradient',
-        gradient: {
-            opacityFrom: 0.6,
-            opacityTo: 0.8,
-        }
     },
     legend: {
         position: 'top',
         horizontalAlign: 'left'
     },
     xaxis: {
-        type: 'numeric',
+        gategories: ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
         title:{
             text:"Days staring from 24th of Febrary"
         } 
@@ -132,5 +132,5 @@ chartThree = new ApexCharts(document.getElementById("chart_3"), newOptions);
 chartFour = new ApexCharts(document.getElementById("chart_4"), lastOptions);
 chart.render();
 chartTwo.render();
-chartThree.render();
+// chartThree.render();
 chartFour.render();

@@ -9,16 +9,18 @@ async function requestData(){
 
 requestData().then(createGraphData);
 
-
+let totalCasesSeries=[];
+let totalHospitalizedSeries=[];
+let rateOfGrowth=[];
+let exponentialFactor2=[];
+let exponentialFactor3=[];
+let exponentialFactor4=[];
+let totalCasesSeriesTwo=[];
 function createGraphData(){
-    let totalCasesSeries=[];
-    let totalHospitalizedSeries=[];
-    let rateOfGrowth=[];
-    let exponentialFactor2=[];
-    let exponentialFactor3=[];
-    let exponentialFactor4=[];
+
     for (let i=0;i<fetchData.data.length;i++){
         dates.push(fetchData.data[i].data);
+        totalCasesSeriesTwo.push(fetchData.data[i].totale_attualmente_positivi);
         totalCasesSeries.push({
             x: fetchData.data[i].data,
             y: fetchData.data[i].totale_attualmente_positivi
@@ -39,7 +41,7 @@ function createGraphData(){
         })
         exponentialFactor3.push({
             x: fetchData.data[i].data,
-            y: (60000000 /(1+ (((60000000 / 221)-1) * Math.exp(-0.3*i)))).toFixed(0)
+            y: (60000000 /(1+ (((60000000 / 221)-1) * Math.exp(-0.2*i)))).toFixed(0)
         })
     }
     for (let i=0;i<30;i++){
@@ -60,22 +62,31 @@ function createGraphData(){
         name: "Rate of Growth",
         data: rateOfGrowth
     }]);
-    chartThree.updateSeries([{
-            name: "Actual Cases",
-            data: totalCasesSeries
-        },
-        {
-            name: "2^x",
-            data: exponentialFactor2
-        },
-        {
-            name: "Logistic Curve from initial Values",
-            data: exponentialFactor3
-        },
+    // chartThree.updateSeries([{
+    //         name: "Actual Cases",
+    //         data: totalCasesSeries
+    //     },
+    //     {
+    //         name: "2^x",
+    //         data: exponentialFactor2
+    //     },
+    //     {
+    //         name: "Logistic Curve from initial Values",
+    //         data: exponentialFactor3
+    //     },
         
-    ]);
-    chartFour.updateSeries([{
-        name:" Prediction",
-        data: exponentialFactor4
-    }])
+    // ]);
+    chartFour.updateSeries([
+        {
+            name: "Real cases so far",
+            type: "line",
+            data: totalCasesSeriesTwo
+        },
+        {
+            name:" Prediction",
+            type: "column",
+            data: exponentialFactor4
+        }
+    ])
+
 }
