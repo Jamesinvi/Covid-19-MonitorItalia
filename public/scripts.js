@@ -44,7 +44,7 @@ function createGraphData(){
             y: (60000000 /(1+ (((60000000 / 221)-1) * Math.exp(-0.2*i)))).toFixed(0)
         })
     }
-    for (let i=0;i<30;i++){
+    for (let i=0;i<32;i++){
         exponentialFactor4.push(
             (60000000 /(1+ (((60000000 / 221)-1) * Math.exp(-0.24*i)))).toFixed(0)
         )
