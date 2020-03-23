@@ -158,7 +158,7 @@ let optionsFour={
         show: true
     }
 }
-chart = new ApexCharts(document.getElementById("chart_1"), optionsOne);
+chart = new ApexCharts(document.getElementById("chart_1"), optionsTwo);
 chartTwo = new ApexCharts(document.getElementById("chart_2"), optionsTwo);
 chartThree = new ApexCharts(document.getElementById("chart_3"), optionsTwo);
 chartFour = new ApexCharts(document.getElementById("chart_4"), optionsThree);
