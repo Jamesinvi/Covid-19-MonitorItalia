@@ -33,7 +33,7 @@ function updateEValue(val){
 
 function updateExpFac3(){
     exponentialFactor3=[221];
-    for (let i=1;i<35;i++){
+    for (let i=1;i<30;i++){
         let num= parseInt(e * parseFloat(exponentialFactor3[i-1]));
         if(num<Number.MAX_SAFE_INTEGER){
             exponentialFactor3.push(num);
