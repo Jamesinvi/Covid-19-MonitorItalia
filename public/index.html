@@ -47,6 +47,30 @@
             <h1>Logistic curve (With no containment measures)  </h1>
             <div id="chart_4"></div>
         </div>
+
+        
+        <br>
+
+
+        <div class="my-5">
+            <h1>To help you understand... </h1>
+            <p>Viruses like the Covid-19 spread exponentially (at first) and only begin to slow down  when the population is saturated. If, however, we limit the amount of interactions people have 
+                with eachother, the speed at which it infects new people really starts to slow down. Here is an interactive graph that lets you increase and decrease the amount of interactions to get a  better
+                understanding of just how important this is in slowing the Covid-19.  </p>
+            <div id="chart_5"></div>
+        </div>
+        <form>
+            <fieldset class="form-group">
+                <legend>Move the slider to limit interactions between people</legend>
+                <input type="range"min= "0.035" max= "0.065" value="0.05" onchange="updateEValue(this.value);" class="custom-range row" id="eSlider" step="0.001">
+
+            </fieldset>
+            <button type="button" class="btn btn-primary btn-block" onclick="resetEValue()">Reset</button>
+        </form>
+
+        <br>
+        <h3 class="text-center">Notice how a small change can have a huge impact on how quickly the virus spreads.</h3>
+
         <h6>Made by James Karran</h6>
 
     </div>

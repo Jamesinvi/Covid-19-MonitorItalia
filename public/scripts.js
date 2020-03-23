@@ -7,18 +7,49 @@ async function requestData(){
     console.log(fetchData);
 }
 
+
 requestData().then(createGraphData);
 
 let totalCasesSeries=[];
 let totalHospitalizedSeries=[];
 let rateOfGrowth=[];
 let exponentialFactor2=[];
-let exponentialFactor3=[];
+let exponentialFactor3=[221];
 let exponentialFactor4=[];
 let totalCasesSeriesTwo=[];
-function createGraphData(){
+let infectionRate= 24.35;
+let e=0.05 * infectionRate;
 
+function resetEValue(){
+    e=0.05 * infectionRate;
+    updateExpFac3();
+    document.getElementById("eSlider").value=0.05;
+}
+function updateEValue(val){
+    e=val * infectionRate;
+    updateExpFac3();
+}
+
+
+function updateExpFac3(){
+    exponentialFactor3=[221];
+    for (let i=1;i<35;i++){
+        let num= parseInt(e * parseFloat(exponentialFactor3[i-1]));
+        if(num<Number.MAX_SAFE_INTEGER){
+            exponentialFactor3.push(num);
+        }
+    }
+    chartFive.updateSeries([
+        {
+            name:" Number of cases ",
+            type: "line",
+            data: exponentialFactor3
+        }
+    ])
+}
+function createGraphData(){
     for (let i=0;i<fetchData.data.length;i++){
+
         dates.push(fetchData.data[i].data);
         totalCasesSeriesTwo.push(fetchData.data[i].totale_attualmente_positivi);
         totalCasesSeries.push({
@@ -29,20 +60,21 @@ function createGraphData(){
             x: fetchData.data[i].data,
             y: fetchData.data[i].totale_ospedalizzati
         })
-        if(i>1){
+        if(i>0){
             rateOfGrowth.push({
                 x: fetchData.data[i].data,
                 y: (fetchData.data[i].nuovi_attualmente_positivi /  fetchData.data[i-1].nuovi_attualmente_positivi).toFixed(3)
             });
+            exponentialFactor3.push(
+                parseInt(e * parseFloat(exponentialFactor3[i-1]))
+            );
+
         }
         exponentialFactor2.push({
             x: fetchData.data[i].data,
             y: Math.pow(2,i+1)
         })
-        exponentialFactor3.push({
-            x: fetchData.data[i].data,
-            y: (60000000 /(1+ (((60000000 / 221)-1) * Math.exp(-0.2*i)))).toFixed(0)
-        })
+
     }
     for (let i=0;i<32;i++){
         exponentialFactor4.push(
@@ -86,6 +118,13 @@ function createGraphData(){
             name:" Prediction",
             type: "column",
             data: exponentialFactor4
+        }
+    ])
+    chartFive.updateSeries([
+        {
+            name:" Number of cases ",
+            type: "line",
+            data: exponentialFactor3
         }
     ])
 

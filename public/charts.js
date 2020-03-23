@@ -1,5 +1,5 @@
 
-var options = {
+var optionsOne = {
     series: [],
     chart: {
         type: 'area',
@@ -57,7 +57,7 @@ var options = {
         }
     }
 };
-let newOptions={
+let optionsTwo={
     series: [],
     chart: {
         type: 'area',
@@ -88,7 +88,7 @@ let newOptions={
         show: false
     }
 }
-let lastOptions={
+let optionsThree={
     series: [],
     chart: {
         type: 'line',
@@ -115,7 +115,7 @@ let lastOptions={
     xaxis: {
         gategories: ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
         title:{
-            text:"Days staring from 24th of Febrary"
+            text:"Days since 24th of Febrary"
         } 
 
     },
@@ -126,11 +126,46 @@ let lastOptions={
         show: true
     }
 }
-chart = new ApexCharts(document.getElementById("chart_1"), options);
-chartTwo = new ApexCharts(document.getElementById("chart_2"), newOptions);
-chartThree = new ApexCharts(document.getElementById("chart_3"), newOptions);
-chartFour = new ApexCharts(document.getElementById("chart_4"), lastOptions);
+let optionsFour={
+    series: [],
+    chart: {
+        type: 'line',
+        height: 600,
+        stacked: true,
+        zoom:{
+            type:"xy"
+        }
+    },
+    dataLabels: {
+        enabled: true
+    },
+    stroke: {
+        curve: "straight"
+    },
+    legend: {
+        position: 'top',
+        horizontalAlign: 'left'
+    },
+    xaxis: {
+        gategories: ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"],
+        title:{
+            text:"Days since 24th of Febrary"
+        } 
+
+    },
+    markers: {
+        size: 1
+    },
+    yaxis:{
+        show: true
+    }
+}
+chart = new ApexCharts(document.getElementById("chart_1"), optionsOne);
+chartTwo = new ApexCharts(document.getElementById("chart_2"), optionsTwo);
+chartThree = new ApexCharts(document.getElementById("chart_3"), optionsTwo);
+chartFour = new ApexCharts(document.getElementById("chart_4"), optionsThree);
+chartFive = new ApexCharts(document.getElementById("chart_5"), optionsFour);
 chart.render();
 chartTwo.render();
-// chartThree.render();
 chartFour.render();
+chartFive.render();
