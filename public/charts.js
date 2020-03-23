@@ -14,9 +14,7 @@ var optionsOne = {
             opacity: 0.2
           },
     },
-    stroke: {
-        curve: "smooth"
-    },
+
     dataLabels: {
         enabled: true
     },
