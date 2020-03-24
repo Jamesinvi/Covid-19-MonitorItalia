@@ -10,6 +10,7 @@ async function requestData(){
 
 requestData().then(createGraphData);
 
+let romeData=[];
 let totalCasesSeries=[];
 let totalHospitalizedSeries=[];
 let rateOfGrowth=[];
@@ -49,7 +50,6 @@ function updateExpFac3(){
 }
 function createGraphData(){
     for (let i=0;i<fetchData.data.length;i++){
-
         dates.push(fetchData.data[i].data);
         totalCasesSeriesTwo.push(fetchData.data[i].totale_attualmente_positivi);
         totalCasesSeries.push({
@@ -127,5 +127,18 @@ function createGraphData(){
             data: exponentialFactor3
         }
     ])
-
+    
+//    for (let i=0;i<fetchData.romeData.length;i++){
+//        romeData.push({
+//         x: fetchData.romeData[i].data,
+//         y: fetchData.romeData[i].totale_casi
+//     })
+//    }
+//    chartSix.updateSeries([
+//         {
+//             name:" Rome cases ",
+//             type: "line",
+//             data: romeData
+//         }
+//    ])
 }
