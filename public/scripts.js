@@ -51,10 +51,10 @@ function updateExpFac3(){
 function createGraphData(){
     for (let i=0;i<fetchData.data.length;i++){
         dates.push(fetchData.data[i].data);
-        totalCasesSeriesTwo.push(fetchData.data[i].totale_attualmente_positivi);
+        totalCasesSeriesTwo.push(fetchData.data[i].totale_positivi);
         totalCasesSeries.push({
             x: fetchData.data[i].data,
-            y: fetchData.data[i].totale_attualmente_positivi
+            y: fetchData.data[i].totale_positivi
         })
         totalHospitalizedSeries.push({
             x: fetchData.data[i].data,
@@ -63,13 +63,14 @@ function createGraphData(){
         if(i>0){
             rateOfGrowth.push({
                 x: fetchData.data[i].data,
-                y: (fetchData.data[i].nuovi_attualmente_positivi /  fetchData.data[i-1].nuovi_attualmente_positivi).toFixed(3)
+                y: (fetchData.data[i].nuovi_positivi /  fetchData.data[i-1].nuovi_positivi).toFixed(3)
             });
             exponentialFactor3.push(
                 parseInt(e * parseFloat(exponentialFactor3[i-1]))
             );
-
+            console.log(fetchData.data[i].nuovi_positivi ,  fetchData.data[i-1].nuovi_positivi , (fetchData.data[i].nuovi_positivi /  fetchData.data[i-1].nuovi_positivi).toFixed(3));
         }
+
         exponentialFactor2.push({
             x: fetchData.data[i].data,
             y: Math.pow(2,i+1)
