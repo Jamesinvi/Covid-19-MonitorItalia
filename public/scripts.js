@@ -77,9 +77,9 @@ function createGraphData(){
         })
 
     }
-    for (let i=0;i<42;i++){
+    for (let i=0;i<52;i++){
         exponentialFactor4.push(
-            (60000000 /(1+ (((60000000 / 221)-1) * Math.exp(-0.19*i)))).toFixed(0)
+            (60000000 /(1+ (((60000000 / 211)-1) * Math.exp(-0.16*i)))).toFixed(0)
         )
     }
     chart.updateSeries([{
