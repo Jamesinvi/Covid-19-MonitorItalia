@@ -15,9 +15,6 @@ var optionsOne = {
           },
     },
 
-    dataLabels: {
-        enabled: true
-    },
     fill: {
         type: 'gradient',
         gradient: {
@@ -42,9 +39,6 @@ var optionsOne = {
             show:false
         }
     ],
-    markers: {
-        size: 1
-    },
     fill: {
         type: 'gradient',
         gradient: {
@@ -62,15 +56,11 @@ let optionsTwo={
         height: 600,
         stacked: true,
     },
+    dataLabels: {
+        enabled: false,
+      },
     stroke: {
         curve: "straight"
-    },
-    fill: {
-        type: 'gradient',
-        gradient: {
-            opacityFrom: 0.6,
-            opacityTo: 0.8,
-        }
     },
     legend: {
         position: 'top',
@@ -78,12 +68,6 @@ let optionsTwo={
     },
     xaxis: {
         type: 'datetime'
-    },
-    markers: {
-        size: 1
-    },
-    yaxis:{
-        show: false
     }
 }
 let optionsThree={
@@ -159,13 +143,13 @@ let optionsFour={
     }
 }
 chart = new ApexCharts(document.getElementById("chart_1"), optionsTwo);
-chartTwo = new ApexCharts(document.getElementById("chart_2"), optionsTwo);
+chartTwo = new ApexCharts(document.getElementById("chart_2"), optionsOne);
 chartThree = new ApexCharts(document.getElementById("chart_3"), optionsTwo);
 chartFour = new ApexCharts(document.getElementById("chart_4"), optionsThree);
 chartFive = new ApexCharts(document.getElementById("chart_5"), optionsFour);
 chartSix = new ApexCharts(document.getElementById("chart_6"), optionsFour);
 chart.render();
 chartTwo.render();
-chartFour.render();
-chartFive.render();
-//chartSix.render();
+// chartFour.render();
+// chartFive.render();
+// chartSix.render();

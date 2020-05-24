@@ -109,18 +109,18 @@ function createGraphData(){
     //     },
         
     // ]);
-    chartFour.updateSeries([
-        {
-            name: "Real cases so far",
-            type: "line",
-            data: totalCasesSeriesTwo
-        },
-        {
-            name:" Prediction",
-            type: "column",
-            data: exponentialFactor4
-        }
-    ])
+    // chartFour.updateSeries([
+    //     {
+    //         name: "Real cases so far",
+    //         type: "line",
+    //         data: totalCasesSeriesTwo
+    //     },
+    //     {
+    //         name:" Prediction",
+    //         type: "column",
+    //         data: exponentialFactor4
+    //     }
+    // ])
     chartFive.updateSeries([
         {
             name:" Number of cases ",
