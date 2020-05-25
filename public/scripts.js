@@ -18,6 +18,7 @@ let exponentialFactor2=[];
 let exponentialFactor3=[221];
 let exponentialFactor4=[];
 let totalCasesSeriesTwo=[];
+let newInfectedSeries=[];
 let infectionRate= 24.35;
 let e=0.05 * infectionRate;
 
@@ -60,6 +61,10 @@ function createGraphData(){
             x: fetchData.data[i].data,
             y: fetchData.data[i].totale_ospedalizzati
         })
+        newInfectedSeries.push({
+            x: fetchData.data[i].data,
+            y: fetchData.data[i].nuovi_positivi
+        })
         if(i>0){
             rateOfGrowth.push({
                 x: fetchData.data[i].data,
@@ -77,11 +82,11 @@ function createGraphData(){
         })
 
     }
-    for (let i=0;i<52;i++){
-        exponentialFactor4.push(
-            (60000000 /(1+ (((60000000 / 211)-1) * Math.exp(-0.16*i)))).toFixed(0)
-        )
-    }
+    // for (let i=0;i<52;i++){
+    //     exponentialFactor4.push(
+    //         (60000000 /(1+ (((60000000 / 211)-1) * Math.exp(-0.16*i)))).toFixed(0)
+    //     )
+    // }
     chart.updateSeries([{
             name: "Total Hospitalized",
             data: totalHospitalizedSeries
@@ -109,18 +114,12 @@ function createGraphData(){
     //     },
         
     // ]);
-    // chartFour.updateSeries([
-    //     {
-    //         name: "Real cases so far",
-    //         type: "line",
-    //         data: totalCasesSeriesTwo
-    //     },
-    //     {
-    //         name:" Prediction",
-    //         type: "column",
-    //         data: exponentialFactor4
-    //     }
-    // ])
+    chartFour.updateSeries([
+        {
+            name: "New cases per day",
+            data: newInfectedSeries
+        }
+    ])
     chartFive.updateSeries([
         {
             name:" Number of cases ",

@@ -14,14 +14,6 @@ var optionsOne = {
             opacity: 0.2
           },
     },
-
-    fill: {
-        type: 'gradient',
-        gradient: {
-            opacityFrom: 0.6,
-            opacityTo: 0.8,
-        }
-    },
     legend: {
         position: 'top',
         horizontalAlign: 'left'
@@ -145,11 +137,11 @@ let optionsFour={
 chart = new ApexCharts(document.getElementById("chart_1"), optionsTwo);
 chartTwo = new ApexCharts(document.getElementById("chart_2"), optionsOne);
 chartThree = new ApexCharts(document.getElementById("chart_3"), optionsTwo);
-chartFour = new ApexCharts(document.getElementById("chart_4"), optionsThree);
+chartFour = new ApexCharts(document.getElementById("chart_4"), optionsTwo);
 chartFive = new ApexCharts(document.getElementById("chart_5"), optionsFour);
 chartSix = new ApexCharts(document.getElementById("chart_6"), optionsFour);
 chart.render();
 chartTwo.render();
-// chartFour.render();
+chartFour.render();
 // chartFive.render();
 // chartSix.render();
